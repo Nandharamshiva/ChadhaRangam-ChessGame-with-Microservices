@@ -39,10 +39,10 @@ export default function TimeControl() {
             </p>
 
             <div className="mt-8 space-y-3 mx-auto w-full max-w-xl">
-              <TimeButton label="⚡ Bullet (1 min)" onClick={() => select("BULLET")} />
-              <TimeButton label="🔥 Blitz (5 min)" onClick={() => select("BLITZ")} />
-              <TimeButton label="🧠 Rapid (10 min)" onClick={() => select("RAPID")} />
-              <TimeButton label="🏛 Classic (30 min)" onClick={() => select("CLASSICAL")} />
+              <TimeButton label="Bullet (1 min)" onClick={() => select("BULLET")} />
+              <TimeButton label="Blitz (5 min)" onClick={() => select("BLITZ")} />
+              <TimeButton label="Rapid (10 min)" onClick={() => select("RAPID")} />
+              <TimeButton label="Classic (30 min)" onClick={() => select("CLASSICAL")} />
             </div>
           </div>
         </div>

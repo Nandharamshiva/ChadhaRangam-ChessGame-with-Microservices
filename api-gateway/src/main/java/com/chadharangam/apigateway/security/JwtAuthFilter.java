@@ -20,7 +20,8 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
         // ✅ PUBLIC ENDPOINTS — MUST BE FIRST
         if (path.equals("/api/users/register")
                 || path.equals("/api/users/login")
-                || path.startsWith("/oauth2")) {
+                || path.startsWith("/oauth2")
+                || path.startsWith("/login/oauth2")) {
             return chain.filter(exchange);
         }
 

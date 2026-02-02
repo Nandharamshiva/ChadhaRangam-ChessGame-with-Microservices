@@ -4,15 +4,17 @@ import Sidebar from "../components/Sidebar";
 export default function Themes() {
   return (
     <AppShell sidebar={<Sidebar />}>
-      <div className="max-w-3xl">
-        <div className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 shadow-xl">
-          <h2 className="text-2xl font-semibold">Themes</h2>
-          <p className="text-slate-400 mt-1">Coming soon: board themes, piece sets, and accent colors.</p>
+      <div className="min-h-[calc(100vh-8rem)] flex items-center">
+        <div className="mx-auto w-full max-w-3xl">
+          <div className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 shadow-xl">
+            <h2 className="text-2xl font-semibold">Themes</h2>
+            <p className="text-slate-400 mt-1">Coming soon: board themes, piece sets, and accent colors.</p>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <ThemeCard name="Emerald" swatch="bg-emerald-500/20" />
-            <ThemeCard name="Indigo" swatch="bg-indigo-500/20" />
-            <ThemeCard name="Rose" swatch="bg-rose-500/20" />
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <ThemeCard name="Emerald" swatch="bg-emerald-500/20" />
+              <ThemeCard name="Indigo" swatch="bg-indigo-500/20" />
+              <ThemeCard name="Rose" swatch="bg-rose-500/20" />
+            </div>
           </div>
         </div>
       </div>

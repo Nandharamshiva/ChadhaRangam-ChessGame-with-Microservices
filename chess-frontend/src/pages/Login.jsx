@@ -3,10 +3,15 @@ import { useNavigate } from "react-router-dom";
 import api from "../api/axios";
 
 export default function Login() {
-    console.log("🔥 NEW LOGIN FILE IS RENDERING 🔥");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const gatewayBase = "http://localhost:8080";
+
+  const startOAuth = (provider) => {
+    window.location.href = `${gatewayBase}/oauth2/authorization/${provider}`;
+  };
 
   const handleLogin = async () => {
     try {
@@ -31,7 +36,7 @@ export default function Login() {
       <div className="relative z-10 w-full max-w-md rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl p-10">
 
         <h1 className="text-4xl font-bold text-center tracking-wide mb-2">
-          ♟ ChadhaRangam
+          ChadhaRangam
         </h1>
         <p className="text-center text-slate-400 mb-8">
           Enter the arena. Outsmart your opponent.
@@ -57,6 +62,32 @@ export default function Login() {
         >
           Login
         </button>
+
+        <div className="mt-6">
+          <div className="flex items-center gap-3">
+            <div className="h-px flex-1 bg-white/10" />
+            <div className="text-xs text-slate-400">or</div>
+            <div className="h-px flex-1 bg-white/10" />
+          </div>
+
+          <div className="mt-4 space-y-3">
+            <button
+              type="button"
+              onClick={() => startOAuth("google")}
+              className="w-full py-3.5 rounded-xl font-semibold border border-white/10 bg-white/5 hover:bg-white/10 transition"
+            >
+              Continue with Google
+            </button>
+
+            <button
+              type="button"
+              onClick={() => startOAuth("github")}
+              className="w-full py-3.5 rounded-xl font-semibold border border-white/10 bg-white/5 hover:bg-white/10 transition"
+            >
+              Continue with GitHub
+            </button>
+          </div>
+        </div>
 
         <p className="mt-6 text-center text-sm text-slate-400">
           New player?{" "}

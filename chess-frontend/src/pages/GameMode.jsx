@@ -9,15 +9,15 @@ export default function GameMode() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-        <ModeCard title="♟ 1 vs 1 Online"
+        <ModeCard title="1 vs 1 Online"
           desc="Play against real players"
           onClick={() => navigate("/time-control/online")} />
 
-        <ModeCard title="🤖 Play vs Bot"
+        <ModeCard title="Play vs Bot"
           desc="Practice against AI"
           onClick={() => navigate("/time-control/bot")} />
 
-        <ModeCard title="👥 Play with Friend"
+        <ModeCard title="Play with Friend"
           desc="Invite a friend"
           onClick={() => navigate("/time-control/friend")} />
       </div>

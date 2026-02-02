@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import Tutorials from "./pages/Tutorials";
 import Themes from "./pages/Themes";
 import Settings from "./pages/Settings";
+import OAuthCallback from "./pages/OAuthCallback";
 import { isAuthenticated } from "./auth/auth";
 
 function RequireAuth({ children }) {
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/" element={<Navigate to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/oauth2/callback" element={<OAuthCallback />} />
         <Route
           path="/mode"
           element={

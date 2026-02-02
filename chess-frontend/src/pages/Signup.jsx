@@ -38,7 +38,7 @@ export default function Signup() {
 
         {/* Title */}
         <h1 className="text-4xl font-bold text-center mb-2 tracking-wide">
-          ♟ Join ChadhaRangam
+          Join ChadhaRangam
         </h1>
         <p className="text-center text-slate-400 mb-8">
           Create your account and start the battle.

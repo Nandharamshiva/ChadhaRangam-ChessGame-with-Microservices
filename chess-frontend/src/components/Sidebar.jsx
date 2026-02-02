@@ -82,11 +82,11 @@ export default function Sidebar() {
           <div className="text-[11px] uppercase tracking-widest text-slate-400 px-1">
             Dashboard
           </div>
-          <SidebarLink to="/dashboard">🏠 Home</SidebarLink>
-          <SidebarLink to="/profile">👤 Profile</SidebarLink>
-          <SidebarLink to="/tutorials">📚 Tutorials</SidebarLink>
-          <SidebarLink to="/themes">🎨 Themes</SidebarLink>
-          <SidebarLink to="/settings">⚙️ Settings</SidebarLink>
+          <SidebarLink to="/dashboard">Home</SidebarLink>
+          <SidebarLink to="/profile">Profile</SidebarLink>
+          <SidebarLink to="/tutorials">Tutorials</SidebarLink>
+          <SidebarLink to="/themes">Themes</SidebarLink>
+          <SidebarLink to="/settings">Settings</SidebarLink>
         </nav>
 
         <div className="flex-1 flex flex-col justify-center space-y-2">
@@ -94,11 +94,11 @@ export default function Sidebar() {
             Play
           </div>
           <SidebarButton onClick={() => startMode("online")}>
-            ♟ 1 vs 1
+            1 vs 1
           </SidebarButton>
-          <SidebarButton onClick={() => startMode("bot")}>🤖 vs Bot</SidebarButton>
+          <SidebarButton onClick={() => startMode("bot")}>vs Bot</SidebarButton>
           <SidebarButton onClick={() => startMode("friend")}>
-            👥 Play with Friend
+            Play with Friend
           </SidebarButton>
         </div>
 
@@ -108,7 +108,7 @@ export default function Sidebar() {
             onClick={logout}
             className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-left text-sm font-medium transition border border-red-500/25 bg-red-500/10 hover:bg-red-500/20 text-red-200 focus:outline-none focus:ring-2 focus:ring-red-500/35"
           >
-            ⎋ Logout
+            Logout
           </button>
         </div>
       </div>

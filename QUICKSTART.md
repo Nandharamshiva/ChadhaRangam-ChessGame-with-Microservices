@@ -126,15 +126,19 @@ CREATE DATABASE chess_user_db;
 CREATE DATABASE chess_game_db;
 ```
 
-**Update credentials in:**
-- `user-service/src/main/resources/application.properties`
-- `game-service/src/main/resources/application.properties`
+## Environment Variables (Required)
 
-Current defaults:
-```properties
-spring.datasource.username=root
-spring.datasource.password=Shiva@123
-```
+To avoid committing secrets to GitHub, the services read sensitive values from environment variables.
+
+Required:
+
+- `DB_PASSWORD` (MySQL password used by `user-service` and `game-service`)
+- `JWT_SECRET` (must be the same for `api-gateway` and `user-service`)
+
+Optional (only if you want Google/GitHub login enabled):
+
+- `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`
+- `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`
 
 ## Port Configuration
 

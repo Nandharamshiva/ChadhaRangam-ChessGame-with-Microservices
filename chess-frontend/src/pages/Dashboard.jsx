@@ -26,17 +26,17 @@ export default function Dashboard() {
 
           <div className="mt-8 space-y-3 mx-auto w-full max-w-2xl">
             <ModeButton
-              title="♟ 1 vs 1 Online"
+              title="1 vs 1 Online"
               desc="Matchmaking against real players"
               onClick={() => go("online")}
             />
             <ModeButton
-              title="🤖 User vs Bot"
+              title="User vs Bot"
               desc="Practice against AI"
               onClick={() => go("bot")}
             />
             <ModeButton
-              title="👥 Play with Friend"
+              title="Play with Friend"
               desc="Local 2-player on the same device"
               onClick={() => go("friend")}
             />

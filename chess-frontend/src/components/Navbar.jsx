@@ -6,7 +6,7 @@ export default function Navbar() {
                     bg-white/5 backdrop-blur-xl border-b border-white/10">
 
       <h1 className="text-2xl font-bold tracking-wide">
-        ♟ ChadhaRangam
+        ChadhaRangam
       </h1>
 
       <div className="flex items-center gap-4">

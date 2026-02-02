@@ -81,7 +81,7 @@ export default function Matchmaking() {
     <div className="min-h-screen flex items-center justify-center 
                     bg-gradient-to-br from-[#020617] to-[#0f172a]">
       <h1 className="text-3xl animate-pulse">
-        🔍 Finding opponent...
+        Finding opponent...
       </h1>
     </div>
   );

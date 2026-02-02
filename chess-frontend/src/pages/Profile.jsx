@@ -8,17 +8,19 @@ export default function Profile() {
 
   return (
     <AppShell sidebar={<Sidebar />}>
-      <div className="max-w-3xl">
-        <div className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 shadow-xl">
-          <h2 className="text-2xl font-semibold">Profile</h2>
-          <p className="text-slate-400 mt-1">
-            Hi <span className="text-slate-200 font-medium">{username}</span> — this page is coming soon.
-          </p>
+      <div className="min-h-[calc(100vh-8rem)] flex items-center">
+        <div className="mx-auto w-full max-w-3xl">
+          <div className="rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10 p-6 shadow-xl">
+            <h2 className="text-2xl font-semibold">Profile</h2>
+            <p className="text-slate-400 mt-1">
+              Hi <span className="text-slate-200 font-medium">{username}</span> — this page is coming soon.
+            </p>
 
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <PlaceholderCard label="Rank" />
-            <PlaceholderCard label="Games played" />
-            <PlaceholderCard label="Win rate" />
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <PlaceholderCard label="Rank" />
+              <PlaceholderCard label="Games played" />
+              <PlaceholderCard label="Win rate" />
+            </div>
           </div>
         </div>
       </div>
