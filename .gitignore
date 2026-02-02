@@ -1,0 +1,26 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# Node
+**/node_modules/
+**/dist/
+**/.vite/
+**/.env
+**/.env.*
+
+# Java / Maven / Gradle
+**/target/
+**/*.class
+**/.classpath
+**/.project
+**/.settings/
+
+# Misc build outputs
+gateway.log
