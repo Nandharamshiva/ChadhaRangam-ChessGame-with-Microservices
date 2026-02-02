@@ -34,7 +34,7 @@ Update the database credentials in:
 
 Current default credentials:
 - Username: `root`
-- Password: `Shiva@123`
+- Password: `your-password`
 
 ## Running the Application
 
