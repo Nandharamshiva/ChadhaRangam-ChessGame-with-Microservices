@@ -45,6 +45,28 @@
 
 ## Starting the Application
 
+## Option 0: Docker (Recommended)
+
+1) Create a `.env` file at the repo root (it's gitignored). You can start from `.env.example`.
+
+2) Build + start everything:
+
+```bash
+docker compose up --build
+```
+
+3) Open:
+
+- Frontend: http://localhost:5173
+- Eureka: http://localhost:8761
+- API Gateway: http://localhost:8080
+
+To stop:
+
+```bash
+docker compose down
+```
+
 ### Option 1: Automated Start (Windows)
 ```powershell
 cd "C:\Users\HP\Desktop\Java Projects\ChadhaRangam"

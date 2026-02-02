@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS chess_user_db;
+CREATE DATABASE IF NOT EXISTS chess_game_db;

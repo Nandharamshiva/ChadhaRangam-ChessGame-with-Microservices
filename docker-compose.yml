@@ -1,0 +1,114 @@
+services:
+  mysql:
+    image: mysql:8.4
+    container_name: chadharangam-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-p${DB_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  service-registry:
+    build:
+      context: ./service-registry
+    container_name: chadharangam-service-registry
+    ports:
+      - "8761:8761"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  api-gateway:
+    build:
+      context: ./api-gateway
+    container_name: chadharangam-api-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      JWT_SECRET: ${JWT_SECRET}
+    depends_on:
+      service-registry:
+        condition: service_started
+
+  user-service:
+    build:
+      context: ./user-service
+    container_name: chadharangam-user-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_PASSWORD: ${DB_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      # Optional: enable OAuth profile only when you set the env vars below
+      # SPRING_PROFILES_ACTIVE: docker,oauth
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET-}
+      GITHUB_CLIENT_ID: ${GITHUB_CLIENT_ID-}
+      GITHUB_CLIENT_SECRET: ${GITHUB_CLIENT_SECRET-}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      service-registry:
+        condition: service_started
+
+  game-service:
+    build:
+      context: ./game-service
+    container_name: chadharangam-game-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      DB_PASSWORD: ${DB_PASSWORD}
+    depends_on:
+      mysql:
+        condition: service_healthy
+      service-registry:
+        condition: service_started
+
+  matchmaking-service:
+    build:
+      context: ./matchmaking-service
+    container_name: chadharangam-matchmaking-service
+    ports:
+      - "8083:8083"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      service-registry:
+        condition: service_started
+
+  notification-service:
+    build:
+      context: ./notification-service
+    container_name: chadharangam-notification-service
+    ports:
+      - "8084:8084"
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    depends_on:
+      service-registry:
+        condition: service_started
+
+  chess-frontend:
+    build:
+      context: ./chess-frontend
+    container_name: chadharangam-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - api-gateway
+
+volumes:
+  mysql_data:

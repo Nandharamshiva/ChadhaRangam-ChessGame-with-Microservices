@@ -14,6 +14,7 @@ Thumbs.db
 **/.vite/
 **/.env
 **/.env.*
+!**/.env.example
 
 # Java / Maven / Gradle
 **/target/
